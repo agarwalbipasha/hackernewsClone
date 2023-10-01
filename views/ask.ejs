@@ -1,0 +1,55 @@
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-10 offset-lg-1 p-0 lh-0 bg-color">
+                <ol>
+                    <% for(let i=0; i < 30; i++) { %>
+
+                        <% for(let element of result) { %>
+                            <li>
+                                <% i %>
+                                    <a href="" class="pe-auto">
+                                        <%= element.title %>
+                                    </a>
+                                    <% if (element.url) { %>
+                                        ( <a href="">
+                                            <%= element.url %>
+                                        </a> )
+                                        <% } %>
+                                            <p>
+                                                <%= element.score %>
+                                                    <% if (element.score===1) { %>
+                                                        point
+                                                        <% } else { %>
+                                                            points
+                                                            <% } %>
+                                                                by <a
+                                                                    class="active border-end border-black pe-auto px-1">
+                                                                    <%= element.by %>
+                                                                </a> <a
+                                                                    class="active border-end border-black px-1 pe-auto">
+                                                                    <%= element.time %> ago
+                                                                </a>
+                                                                <a href=""
+                                                                    class="active border-end border-black px-1 pe-auto">hide</a>
+                                                                <a href=""
+                                                                    class="active border-end border-black px-1 pe-auto">past</a>
+                                                                <a href=""
+                                                                    class=" active border-end border-black px-1 pe-auto">discuss</a>
+                                            </p>
+                            </li>
+                            <% } break %>
+                                <% } %>
+
+
+
+
+                </ol>
+                <a href="" class="active px-1 pe-auto" onclick="moreItems">More</a>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer') %>

@@ -1,0 +1,24 @@
+<%- include('partials/navbar') %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-1 p-0 lh-0 bg-color small-font">
+                <p class="underline link-secondary mt-3">
+                    <a class="link-secondary" href="/user">
+                        <%= element.by %>
+                    </a>
+                    <a class="link-secondary" href="">on July 17, 2010</a> |
+                    <a class="link-secondary" href="">parent</a> |
+                    <a class="link-secondary" href="">context</a> |
+                    <a class="link-secondary" href="">favorite</a> | on:
+                    <a class="link-secondary" href="">Ask HN: Down-voted comments</a>
+                </p>
+                <p class="underline lh-1">
+                    <%- element.text -%>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer') %>

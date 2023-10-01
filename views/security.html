@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 p-0">
+                    <a href="/" class="">
+                        <img src="../images/combinator.png" alt="" class="img-fluid" width="100%" height="auto">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 bg-color p-0 small-font underline">
+                <h6 class="fw-bold pt-3">Hacker News Security</h6>
+                <p>If you find a security hole, please let us know at <a href="mailto:security@ycombinator.com">security@ycombinator.com</a>. We try to respond (with
+                    fixes!) as soon as possible, and really appreciate the help.</p>
+                <p>Thanks to the following people who have discovered and responsibly disclosed security holes in Hacker
+                    News:</p>
+                <p class="fw-bold">2023-01-02: <a href="https://carter.sande.duodecima.technology/">Carter Sande</a>, <a href="http://www.slatersf.com/">Mark Slater</a>, <a href="https://james.darpinian.com/blog/">James
+                        Darpinian</a></p>
+                <ul>
+                    <li>Submission titles were no longer being HTML-escaped in some places.</li>
+                </ul>
+                <p class="fw-bold">2022-09-04: Dimitris Triantafyllidis</p>
+                <ul>
+                    <li>User karma could be increased by exploiting an upvote/unvote bug.</li>
+                </ul>
+                <p class="fw-bold">2021-07-04: <a href="https://twitter.com/ryotkak">RyotaK</a></p>
+                <ul>
+                    <li>URL tricks could display the wrong domain for some websites.</li>
+                </ul>
+                <p class="fw-bold">2021-06-07: <a href="">Atamyrat Hezretgulyyev</a></p>
+                <ul>
+                    <li>A CSRF logout was still possible in some cases.</li>
+                </ul>
+                <p class="fw-bold">2021-02-14: <a href="https://kyht.com/">Michael Brooks</a></p>
+                <ul>
+                    <li>Set the SameSite cookie attribute for better CSRF protection.</li>
+                </ul>
+                <p class="fw-bold">2017-04-30: <a href="https://www.michaelflaxman.com/">Michael Flaxman</a></p>
+                <ul>
+                    <li>The minor version of bcrypt used for passwords was susceptible to a collision in some cases.
+                    </li>
+                </ul>
+                <p class="fw-bold">2017-04-14: Blake Rand</p>
+                <ul>
+                    <li>Links in comments were vulnerable to an IDN homograph attack.</li>
+                </ul>
+                <p class="fw-bold">2017-03-15: Blake Rand</p>
+                <ul>
+                    <li>The right-to-left override character could be used to obscure link text in comments.</li>
+                </ul>
+                <p class="fw-bold">2017-03-01: <a href="https://twitter.com/_iamjk">Jaikishan Tulswani</a></p>
+                <ul>
+                    <li>Logged-in users could bypass 'old password' form field.</li>
+                </ul>
+                <p class="fw-bold">2016-02-17: <a href="http://www.tjosse.me/">Eric Tjossem</a></p>
+                <ul>
+                    <li>Logout and login were vulnerable to CSRF.</li>
+                </ul>
+                <p class="fw-bold">2016-01-13: <a href="https://twitter.com/merttasci_">Mert Taşçi</a></p>
+                <ul>
+                    <li>The 'forgot password' link was vulnerable to reflected XSS.</li>
+                </ul>
+                <p class="fw-bold">2015-09-07: Sandeep Singh</p>
+                <ul>
+                    <li>An open redirect was possible by passing a URL with a mixed-case protocol as the goto parameter.
+                    </li>
+                </ul>
+                <p class="fw-bold">2015-09-04: <a href="https://twitter.com/umenmactech">Manish Bhattacharya</a></p>
+                <ul>
+                    <li>The site name display for stories was vulnerable to an <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack">IDN homograph attack</a>.
+                    </li>
+                </ul>
+                <p class="fw-bold">2015-08-27: <a href="https://twitter.com/chrismarlow9">Chris Marlow</a></p>
+                <ul>
+                    <li>Revisions to HN's markup caused an HTML injection regression.</li>
+                </ul>
+                <p class="fw-bold">2015-06-24: <a href="http://stephensclafani.com/">Stephen Sclafani</a></p>
+                <ul>
+                    <li>A form handling bug led to a XSS vulnerability using <a href="https://www.slideshare.net/Wisec/http-parameter-pollution-a-new-category-of-web-attacks">HTTP parameter pollution</a>.
+                    </li>
+                </ul>
+                <p class="fw-bold">2015-03-02: Max Bond</p>
+                <ul>
+                    <li>Information leaked during /r processing allowed an attacker to discover valid profile edit links
+                        and the user for which they were valid.</li>
+                    <li><span class="fst-italic">goto</span> parameters functioned as open redirects.</li>
+                </ul>
+                <p class="fw-bold">2014-11-01: Ovidiu Toader</p>
+                <ul>
+                    <li>In rare cases some users' profiles (including email addresses and password hashes) were
+                        mistakenly published to the Firebase API. More <a href="">here</a>.</li>
+                </ul>
+                <p class="fw-bold">2014-10-27: San Tran</p>
+                <ul>
+                    <li>Some pages displaying forms were vulnerable to reflected XSS when provided malformed query
+                        string arguments.</li>
+                </ul>
+                <p class="fw-bold">2014-05-01: <a href="https://titanous.com/">Jonathan Rudenberg</a></p>
+                <ul>
+                    <li>Some YC internal pages were vulnerable to persistent XSS.</li>
+                </ul>
+                <p class="fw-bold">2012-08-01: <a href="https://louislang.com/">Louis Lang</a></p>
+                <ul>
+                    <li>Redirects were vulnerable to HTTP response splitting via the <span
+                            class="fst-italic">whence</span> argument.</li>
+                    <li>Persistent XSS could be achieved via the <span class="fst-italic">X-Forwarded-For</span> header.
+                    </li>
+                </ul>
+                <p class="fw-bold">2012-07-20: <a href="https://www.synopsys.com/software-integrity/tinfoil.html">Michael Borohovski</a></p>
+                <ul>
+                    <li>Incorrect handling of unauthenticated requests meant anyone could change rsvp status for Demo
+                        Day.</li>
+                </ul>
+                <p class="fw-bold">2010-01-12: <a href="https://twitter.com/zainy">Zain Memon</a></p>
+                <ul>
+                    <li>Someone creating a new account could sometimes take an existing username.</li>
+                </ul>
+                <p class="fw-bold">2009-06-03: <a href="https://www.dfranke.us/">Daniel Fox Franke</a></p>
+                <ul>
+                    <li>The state of the PRNG used to generate cookies could be determined from observed outputs. This
+                        allowed an attacker to fairly easily determine valid user cookies and compromise accounts. More
+                        <a href="">here</a>.</li>
+                </ul>
+                <p><span class="fw-bold">Missing From This List?</span> If you reported a vulnerability to us and don't
+                    see your name, please shoot us an email and we'll happily add you. We crawled through tons of emails
+                    trying to find all reports but inevitably missed some.</p>
+
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 bg-color p-0 pb-5">
+                    <hr class="border border-danger border-2 opacity-75">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

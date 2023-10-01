@@ -1,0 +1,57 @@
+.bg-color {
+    background-color: #f6f6ef !important;
+}
+
+nav {
+    background-color: #ff6600;
+}
+
+footer hr {
+    background-color: #ff6600;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ol {
+    list-style: auto;
+}
+
+ul {
+    list-style: disc;
+}
+
+/* img{ */
+    /* width: auto;
+    height: auto;
+    object-fit: fill; */
+/* } */
+
+.small-font {
+    font-size: small;
+}
+
+.underline a, .underline p a {
+    text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+    .largeScreen {
+        display: none;
+    }
+    /* .smallScreen {
+        display: block;
+    } */
+}
+
+@media (min-width: 760px) {
+    .smallScreen {
+        display: none;
+    }
+    /* .largeScreen {
+        display: block;
+    } */
+}
+
