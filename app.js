@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const path = require("path");
 const axios = require("axios");
+const port = process.env.PORT;
 const newStoriesUrl =
   "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty";
 const eachIDUrl = "https://hacker-news.firebaseio.com/v0/item/";
@@ -228,7 +230,8 @@ app.get("/past", async (req, res) => {
   // res.render('past');
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
+  console.log(port);
   console.log("Server started");
 });
 // views/showhn.html
