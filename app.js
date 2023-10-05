@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -15,15 +15,17 @@ const showStories =
   "https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty";
 const maxItemUrl =
   "https://hacker-news.firebaseio.com/v0/maxitem.json?print=pretty";
-const askStoriesUrl = ' https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty';
-const jobStoriesUrl = ' https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty'
+const askStoriesUrl =
+  " https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty";
+const jobStoriesUrl =
+  " https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty";
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use("/styles", express.static(path.join(__dirname, "/styles")));
 app.use("/images", express.static(path.join(__dirname, "/images")));
-app.use("htmlFiles", express.static(path.join(__dirname, "/htmlFiles")))
+// app.use("/htmlFiles", express.static(path.join(__dirname, "/htmlFiles")));
 
 const fetchData = (url) => {
   return new Promise((resolve, reject) => {
@@ -73,13 +75,26 @@ const getDate = () => {
 };
 
 const getDateInString = (date) => {
-  let arrayOfMonths = ['Janaury', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let arrayOfMonths = [
+    "Janaury",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   let month = date.slice(5, 7);
   let index = Number(month.slice(1)) - 1;
   let monthInString = arrayOfMonths[index];
-  let result = `${monthInString} ${date.slice(8)}, ${date.slice(0, 4)}`
+  let result = `${monthInString} ${date.slice(8)}, ${date.slice(0, 4)}`;
   return result;
-}
+};
 
 app.get("/news", async (req, res) => {
   try {
@@ -176,25 +191,19 @@ app.get("/user/:id", async (req, res) => {
 });
 
 app.get("/submit", (req, res) => {
-    res.render("submit");
+  res.render("submit");
 });
 
 app.get("/showhn.html", (req, res) => {
-  res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/showhn.html"
-  );
+  res.sendFile("views/htmlFiles/showhn.html", { root: __dirname});
 });
 
 app.get("/guidelines.html", (req, res) => {
-  res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/guidelines.html"
-  );
+  res.sendFile("views/htmlFiles/guidelines.html", { root: __dirname});
 });
 
 app.get("/faq.html", (req, res) => {
-  res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/faq.html"
-  );
+  res.sendFile("views/htmlFiles/faq.html", { root: __dirname});
 });
 
 app.get("/lists", (req, res) => {
@@ -202,9 +211,7 @@ app.get("/lists", (req, res) => {
 });
 
 app.get("/security.html", (req, res) => {
-  res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/security.html"
-  );
+  res.sendFile("views/htmlFiles/security.html", { root: __dirname});
 });
 
 app.get("/past", async (req, res) => {
@@ -224,7 +231,7 @@ app.get("/past", async (req, res) => {
     //     console.log(here);
     //     arrayOfElements.push(element);
     //   }
-      // console.log(arrayOfElements);
+    // console.log(arrayOfElements);
     // }
     const result = await itemsToDisplay(arrayOfElements);
     console.log("result is: ", result);
