@@ -23,6 +23,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use("/styles", express.static(path.join(__dirname, "/styles")));
 app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use("htmlFiles", express.static(path.join(__dirname, "/htmlFiles")))
 
 const fetchData = (url) => {
   return new Promise((resolve, reject) => {
@@ -40,6 +41,10 @@ const getEachElement = async (url) => {
   const eachElement = await Promise.all(
     el.map(async (e) => {
       const result = await fetchData(`${eachIDUrl}${e}.json?print=pretty`);
+      // result = result.map(data => {
+      //   data.time = new Date(data.time).toLocaleDateString('en-en-GB');
+      // })
+      // console.log(result);
       return result;
     })
   );
@@ -176,19 +181,19 @@ app.get("/submit", (req, res) => {
 
 app.get("/showhn.html", (req, res) => {
   res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/showhn.html"
+    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/showhn.html"
   );
 });
 
 app.get("/guidelines.html", (req, res) => {
   res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/guidelines.html"
+    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/guidelines.html"
   );
 });
 
 app.get("/faq.html", (req, res) => {
   res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/faq.html"
+    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/faq.html"
   );
 });
 
@@ -198,7 +203,7 @@ app.get("/lists", (req, res) => {
 
 app.get("/security.html", (req, res) => {
   res.sendFile(
-    "/Users/bipasha/Desktop/practice/hackernewsClone/views/security.html"
+    "/Users/bipasha/Desktop/practice/hackernewsClone/views/htmlFiles/security.html"
   );
 });
 
@@ -231,7 +236,6 @@ app.get("/past", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(port);
   console.log("Server started");
 });
 // views/showhn.html
